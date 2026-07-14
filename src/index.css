@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* ===== DESIGN TOKENS ===== */
+@theme {
+  --color-brand-bg: #FDF8F5;
+  --color-brand-card: #FFFFFF;
+  --color-brand-card-alt: #FFF9F6;
+  --color-brand-text: #2D292A;
+  --color-brand-muted: #9A8F91;
+  --color-brand-accent: #D4838F;
+  --color-brand-accent-light: #F8E4E8;
+  --color-brand-peach: #F2C4B3;
+  --color-brand-badge-bg: #FCE7EB;
+  --color-brand-badge-text: #B5546A;
+  --color-brand-cta: #C96B7A;
+  --color-brand-cta-hover: #B45A69;
+
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Outfit", sans-serif;
+
+  --shadow-card: 0 4px 24px rgba(180, 150, 150, 0.08);
+  --shadow-card-hover: 0 10px 40px rgba(180, 150, 150, 0.15);
+  --shadow-device: 16px 16px 48px rgba(100, 60, 60, 0.12);
+
+  --radius-bento: 28px;
+  --radius-bento-sm: 20px;
+}
+
+/* ===== BASE STYLES ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+}
+
+/* ===== BADGE SHIMMER ===== */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.badge-shimmer {
+  background: linear-gradient(110deg, #FCE7EB 30%, #FFF0F2 50%, #FCE7EB 70%);
+  background-size: 200% 100%;
+  animation: shimmer 5s ease-in-out infinite;
+}
+
+/* ===== PHONE NOTCH ===== */
+.phone-notch::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 18px;
+  background: #1a1a1a;
+  border-radius: 0 0 12px 12px;
+  z-index: 10;
+}
+
+/* ===== VIDEO OVERLAY ===== */
+.video-overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 100%);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #E8D5D8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #D4838F; }
+
+/* ===== HIDE SCROLLBAR UTILITY ===== */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+/* ===== CTA GLOW ===== */
+@keyframes cta-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(201, 107, 122, 0.35); }
+  70% { box-shadow: 0 0 0 12px rgba(201, 107, 122, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 107, 122, 0); }
+}
+.cta-glow {
+  animation: cta-pulse 3.5s ease-in-out infinite;
+}
+
+/* ===== BLOB ANIMATION ===== */
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(6px, -6px) scale(1.03); }
+  66% { transform: translate(-3px, 3px) scale(0.97); }
+}
+.blob-animate {
+  animation: blob-float 10s ease-in-out infinite;
+}
+
+/* ===== SPINNING TEXT ===== */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
+/* ===== FLOAT ===== */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+.float-gentle {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+/* ===== MOBILE ADJUSTMENTS ===== */
+@media (max-width: 639px) {
+  .phone-notch::before {
+    width: 50px;
+    height: 14px;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .badge-shimmer,
+  .cta-glow,
+  .blob-animate,
+  .spin-slow,
+  .float-gentle {
+    animation: none !important;
+  }
+}
