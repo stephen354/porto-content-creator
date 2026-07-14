@@ -108,7 +108,7 @@ export default function InvoicePreview({ invoiceData }) {
       </div>
 
       {/* ===== INVOICE PREVIEW CARD ===== */}
-      <div ref={previewRef} data-invoice-card className="bg-white rounded-[var(--radius-card)] shadow-card overflow-hidden text-[13px]">
+      <div ref={previewRef} data-invoice-card className="bg-white rounded-[var(--radius-card)] shadow-card overflow-hidden text-[13px] max-w-[800px] mx-auto w-full">
         {/* Header Band */}
         <div className="relative bg-gradient-to-r from-[#C96B7A] via-[#D4838F] to-[#F2C4B3] px-7 py-7 overflow-hidden">
           <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white/10" />
@@ -209,7 +209,7 @@ export default function InvoicePreview({ invoiceData }) {
           {/* ===== TOTAL ===== */}
           <div className="border-t-2 border-dashed border-brand-accent-light pt-4 mb-6">
             <div className="flex justify-between items-center bg-gradient-to-r from-brand-accent-light/20 via-brand-badge-bg/30 to-brand-accent-light/20 rounded-xl px-4 py-3">
-              <span className="text-xs font-bold text-brand-text uppercase tracking-wide">Grand Total</span>
+              <span className="text-xs font-bold text-brand-text uppercase tracking-wide">Total</span>
               <span className="font-display font-extrabold text-lg text-brand-cta">
                 Rp {formatRupiah(grandTotal)}
               </span>

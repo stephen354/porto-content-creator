@@ -330,7 +330,7 @@ export default function InvoiceForm({ invoiceData, setInvoiceData }) {
             {/* Grand Total */}
             <div className="bg-gradient-to-r from-brand-accent-light/30 via-brand-badge-bg/40 to-brand-accent-light/30 rounded-2xl p-4">
               <div className="flex justify-between items-center">
-                <span className="text-sm font-bold text-brand-text">Grand Total</span>
+                <span className="text-sm font-bold text-brand-text">Total</span>
                 <span className="font-display font-extrabold text-xl text-brand-cta">
                   Rp {formatRupiah(grandTotal)}
                 </span>
